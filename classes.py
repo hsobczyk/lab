@@ -7,28 +7,25 @@ class Television:
 
     def __init__(self):
         """
-        - Create a private variable to store the TV channel. It should be set to the minimum TV channel by default.
-        - Create a private variable to store the TV volume. It should be set to the minimum TV volume by default.
-        - Create a private variable to store the TV status. The TV should start when it is off.
+        Function to initialize the television's properties __channel, __volume, and __status.
+        :param self: The object being passed.
         """
-        self.__channel = Television.MIN_CHANNEL
-        self.__volume = Television.MIN_VOLUME
-        self.__status = False
+        self.__channel = Television.MIN_CHANNEL   # Set __channel to MIN_CHANNEL by default 
+        self.__volume = Television.MIN_VOLUME     # Set __volume to MIN_VOLUME by default
+        self.__status = False                     # Set __status False by default, "off".
 
 
     def power(self):
         """
-        - This method should be used to turn the TV on/off.
-        - If called on a TV object that is off, the TV object should be turned on.
-        - If called on a TV object that is on, the TV object should be turned off.
+        Function to change the property __status of the television alternating between True and False with each run.
+        :param self: the object being passed.
         """
         self.__status = not self.__status
 
     def channel_up(self):
         """
-        - This method should be used to adjust the TV channel by incrementing its value.
-        - It should only work for a TV that is on.
-        - If the method is called when one is on the MAX_CHANNEL, it should take the TV channel back to the MIN_CHANNEL.
+        Function to increment the television's property __channel up by one and to roll over back to MIN_CHANNEL when above MAX_CHANNEL
+        :param self: the object being passed.
         """
         if self.__status:
             self.__channel += 1
@@ -37,9 +34,8 @@ class Television:
 
     def channel_down(self):
         """
-        - This method should be used to adjust the TV channel by decrementing its value.
-        - It should only work for a TV that is on.
-        - If the method is called when one is on the MIN_CHANNEL, it should take the TV channel back to the MAX_CHANNEL.
+        Function to increment the television's property __channel down by one and to roll over back to MAX_CHANNEL when below MIN_CHANNEL
+        :param self: the object being passed.
         """
         if self.__status:
             self.__channel -= 1
@@ -48,9 +44,8 @@ class Television:
 
     def volume_up(self):
         """
-        - This method should be used to adjust the TV volume by incrementing its value.
-        - It should only work for a TV that is on.
-        - If the method is called when one is on the MAX_VOLUME, the volume should not be adjusted.
+        Function to increment the television's property __volume up by one and to stop when it reaches MAX_VOLUME
+        :param self: the object being passed.
         """
         if self.__status:
             if self.__volume < Television.MAX_VOLUME:
@@ -58,9 +53,8 @@ class Television:
 
     def volume_down(self):
         """
-        - This method should be used to adjust the TV volume by decrementing its value.
-        - It should only work for a TV that is on.
-        - If the method is called when one is on the MIN_VOLUME, the volume should not be adjusted.
+        Function to increment the television's property __volume down by one ant to stop when it reaches MIN_VOLUME
+        :param self: the object being passed.
         """
         if self.__status:
             if self.__volume > Television.MIN_VOLUME:
@@ -68,7 +62,9 @@ class Television:
 
     def __str__(self):
         """
-        - This method should be used to return the TV status using the format shown in the comments of main.py
+        Function that modifies what Television returns when its outputed as a string.
+        :param self: the object being passed.
+        :return: The string that is formated to contain the properties __status, __channel, __volume.
         """
         return "TV status: Is on = {}, Channel = {}, Volume = {}".format(self.__status, self.__channel, self.__volume)
         

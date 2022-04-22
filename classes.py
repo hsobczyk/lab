@@ -1,4 +1,7 @@
 class Television:
+    """
+    A class representing details for a television object.
+    """
     MIN_CHANNEL: int = 0     # Minimum TV channel
     MAX_CHANNEL: int = 3     # Maximum TV channel
 

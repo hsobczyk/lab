@@ -37,9 +37,10 @@ class Test:
 
         self.tv.power()
         self.tv.volume_up()
-        assert self.tv.__str__() == "TV status: Is on = True, Channel = 0, Volume = 1"
+        self.tv.volume_up()
+        assert self.tv.__str__() == "TV status: Is on = True, Channel = 0, Volume = 2"
         self.tv.volume_down()
-        assert self.tv.__str__() == "TV status: Is on = True, Channel = 0, Volume = 0"
+        assert self.tv.__str__() == "TV status: Is on = True, Channel = 0, Volume = 1"
 
         self.tv.volume_down()
         self.tv.volume_down()

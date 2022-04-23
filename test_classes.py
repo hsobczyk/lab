@@ -70,4 +70,5 @@ class Test:
 
         self.tv.channel_down()
         self.tv.channel_down()
-        assert self.tv.__str__() == "TV status: Is on = True, Channel = 1, Volume = 0"
+        self.tv.channel_down()
+        assert self.tv.__str__() == "TV status: Is on = True, Channel = 0, Volume = 0"
